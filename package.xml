@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>csDoctrineActAsGeolocatablePlugin</name>
- <channel>plugins.symfony-project.org</channel>
+ <channel>pear.symfony-project.com</channel>
  <summary>A plugin that adds auto-population of latitude and longitude fields and useful geolocating functions to model</summary>
  <description>
 		Configure your plugin using only YAML to pull latitude and longitude 
@@ -16,7 +16,7 @@
   <email>bshaffer@centresource.com</email>
   <active>yes</active>
  </lead>
- <date>2009-04-24</date>
+ <date>2009-04-25</date>
  <time>15:54:35</time>
  <version>
   <release>1.0.0</release>
