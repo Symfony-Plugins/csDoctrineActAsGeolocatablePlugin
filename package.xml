@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.6" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>csDoctrineActAsGeolocatablePlugin</name>
+ <channel>plugins.symfony-project.org</channel>
+ <summary>A plugin that adds auto-population of latitude and longitude fields and useful geolocating functions to model</summary>
+ <description>
+		Configure your plugin using only YAML to pull latitude and longitude 
+		information using the Google API.  Specify the fields on your model 
+		you want to use to retrieve the latitude and longitude, add a Google API key, 
+		and the plugin will do the rest.  Supports radius searches in miles and
+ 	  kilometers.
+ </description>
+ <lead>
+  <name>Brent Shaffer</name>
+  <user>bshaffer</user>
+  <email>bshaffer@centresource.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-04-24</date>
+ <time>15:54:35</time>
+ <version>
+  <release>1.0.0</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
+ <notes>-</notes>
+ <contents>
+  <dir name="/">
+   <file role="data" name="README" />
+   <file role="data" name="LICENSE" />
+   <dir name="lib">
+    <file role="data" name="geocoder.class.php" />
+    <dir name="listener">
+     <!-- model classes -->
+     <file role="data" name="Geolocatable.php" />
+    </dir>
+    <dir name="template">
+     <!-- model classes -->
+     <file role="data" name="Geolocatable.php" />
+    </dir>
+   </dir>
+   <dir name="config">
+    <file role="data" name="app.yml" />
+   </dir>
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.1.0</min>
+    <max>1.2.0</max>
+    <exclude>1.2.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2009-04-24</date>
+   <license uri="http://www.symfony-project.org/license">MIT license</license>
+   <notes>
+   * Initial creation of plugin
+   </notes>
+  </release>
+ </changelog>
+</package>
