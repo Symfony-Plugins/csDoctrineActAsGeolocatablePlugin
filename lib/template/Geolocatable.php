@@ -107,7 +107,7 @@ class Doctrine_Template_Geolocatable extends Doctrine_Template
 		$geocoder = new Geocoder();
 		foreach ($this->_options['fields'] as $key => $value) {
 				$geoMethod = is_numeric($key) ? $value : $key;
-				$geocoder->$geoMethod($object[(string)$key]);
+				$geocoder->$geoMethod($object[(string)$value]);
 		}
 		return $geocoder;
 	}
