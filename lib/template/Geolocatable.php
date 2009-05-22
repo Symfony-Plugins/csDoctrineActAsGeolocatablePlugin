@@ -228,17 +228,15 @@ class Doctrine_Template_Geolocatable extends Doctrine_Template
 
 			if($distance_unit == 'miles')
 			{
-      	$querySql = sprintf($sql, $latitude, $latitude, $longitude, '1.1515 * 1.609344', $distance_unit);
-			// exit($querySql);
-
+      	$querySql = sprintf($sql, $latitude, $latitude, $longitude, '1.1515', $distance_unit);
 			}
 			elseif($distance_unit == 'kilometers')
 			{
-				$querySql = sprintf($sql, $latitude, $latitude, $longitude, '1.1515', $distance_unit);
+			  $querySql = sprintf($sql, $latitude, $latitude, $longitude, '1.1515 * 1.609344', $distance_unit);
 			}
 			else
 			{
-				  throw new sfException('Distance Unit must be one of the following: [miles, kilometers]. "'.$distance_unit.'" given.');
+				throw new sfException('Distance Unit must be one of the following: [miles, kilometers]. "'.$distance_unit.'" given.');
 			}
 			
 			$query->addSelect($querySql);
