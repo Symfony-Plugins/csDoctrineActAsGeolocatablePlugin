@@ -16,16 +16,16 @@ class Doctrine_Template_Geolocatable extends Doctrine_Template
   protected $_options = array('columns'			=> array(
 																'latitude'    =>  array(
 																		'name' 		=> 'latitude',
-																		'type' 		=> 'float',
-																		'length'	=>  null,
+																		'type' 		=> 'decimal',
+																		'length'	=>  18,
 			                              'alias'   =>  null,
-			                              'options' =>  array()),
+			                              'options' =>  array('scale' => 6)),
 																'longitude'  	=> 	array(
 																		'name' 		=> 'longitude',
-																		'type' 		=> 'float',
-																		'length' 	=>  null,
+																		'type' 		=> 'decimal',
+																		'length'	=>  18,
 			                              'alias'   =>  null,
-			                              'options' =>  array()),
+			                              'options' =>  array('scale' => 6)),
 														), 'fields'				=> array(
 																		'postal'  =>  'postal')
 	 );
