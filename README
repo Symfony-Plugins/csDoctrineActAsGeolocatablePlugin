@@ -2,65 +2,37 @@ csDoctrineActAsGeolocatablePlugin
 =================================
 
 This plugin is for Doctrine only.  It provides API integration with Google Maps to allow for the automatic fetching
-of latitude and longitude for a given model.  This is configurable for any field/fields on your model.  You should 
-retrieve your own API key from google and add it to your project's app.yml as follows:
-
-		all:
-  		geo:
-    		google:
-      		key:			**MYGOOGLEKEY**
+of latitude and longitude for a given model.  This is configurable for any field/fields on your model.  
 
 How It Works
 ------------
 
 Add the behavior to your model:
 
-		MyModel:
-			actAs: [Geolocatable]
-			
-By default, Geolocatable will look for a "postal" field to use when integrating with the Google API.  To change this, you simply
-need to add the fields you wish the plugin to use instead:
+    MyModel:
+      actAs: [Geolocatable]
+      
+Geolocatable requires the "fields" argument to work.  This takes an array of fields use to determine
+the latitude/longitude.  Provide as many or as few fields as you want, but you must provide at least one:
 
-		MyModel:
-			actAs: 
-				Geolocatable
-					fields:	[city, state]
-					
-In your project you may want the plugin to use a field that is not named the same as the geolocator fields.  For instance,
-If your field customer_state needs to map to state.  You can accomplish this by modifying your behavior options:
-
-
-		MyModel:
-			actAs: 
-				Geolocatable
-					fields:	
-						city:  city
-						state: customer_state
-						
+    MyModel:
+      actAs: 
+        Geolocatable
+          fields: [city, state]
+            
 Methods
 -------
 
-The Geolocatable plugin comes with many useful methods which calculate the distances between objects automatically.
-Here are some of the methods:
+The Geolocatable plugin comes with some methods for geolocation:
 
 ####Object Methods:
-* refreshGeocodes($force = false)
-		refreshes the geocodes for the object via the Google Maps API.  the $force option will refresh the geocodes even if the item's codes are already set.
-*	getGeocoder()
-		returns the geocoder model populated with the object's values.  Useful for debugging
-* findAdjacent($distance = null, $distance_unit = null)
-		finds all adjacent models of the same type, ordered by distance.  The $disatnce parameter limits the results within a certain distance, and $distance_unit can be either miles or kilometers.  Default is miles.
+* refreshGeocodes( $url = null )
+    refreshes the geocodes for the object via the Google Maps API.
 
 ####Table Methods
-*	refreshAllGeocodes($force = false)
-		runs refreshGeocodes on every item in the table and passes the $force variable
-* findByGeocode($latitude, $longitude, $distance, $distance_unit = null)
-		finds all records within a given distance from a given geocode.  $distance_unit can be either miles or kilometers.  Distance is a selected attribute.
-* geolocate($options, $distance, $distance_unit = null)
-		mixed $options represents either an associative array of column names and values to search on ('city' => 'Nashville') or if there is only one column to search on, takes this value and searches on it (for instance, if POSTAL is being searched, you can pass a zip code directly)
-*	getDistanceQuery($latitude, $longitude, $distance = null, $distance_unit=null)	
-		query used for findByGeocode.
-* addDistanceQuery($query, $latitude, $longitude, $distance=null, $rootAlias=null, $distance_unit=null )
-		adds distance query to a preexisting query.  field "distance" on each object represents the distance away from the passed latitude and longitude.  If $distance is not null, results are limited to that distance from the given geocodes.
-		
+* addDistanceQuery( $query, $latitude, $longitude, $distance = null)
+    adds distance query to a preexisting query.  
+    field "distance" on each object represents the distance away from the passed latitude and longitude.  
+    If $distance is not null, results are limited to that distance from the given geocodes.
+    
 Please contact bshaffer@centresource.com for any comments or questions

@@ -6,9 +6,8 @@
  <description>
 		Configure your plugin using only YAML to pull latitude and longitude 
 		information using the Google API.  Specify the fields on your model 
-		you want to use to retrieve the latitude and longitude, add a Google API key, 
-		and the plugin will do the rest.  Supports radius searches in miles and
- 	  kilometers.
+		you want to use to for the latitude and longitude and the plugin will 
+		do the rest.  Supports radius searches in miles and kilometers.
  </description>
  <lead>
   <name>Brent Shaffer</name>
@@ -33,7 +32,6 @@
    <file role="data" name="README" />
    <file role="data" name="LICENSE" />
    <dir name="lib">
-    <file role="data" name="geocoder.class.php" />
     <dir name="listener">
      <!-- model classes -->
      <file role="data" name="Geolocatable.php" />
@@ -42,9 +40,6 @@
      <!-- model classes -->
      <file role="data" name="Geolocatable.php" />
     </dir>
-   </dir>
-   <dir name="config">
-    <file role="data" name="app.yml" />
    </dir>
   </dir>
  </contents>
@@ -61,7 +56,10 @@
     <channel>pear.symfony-project.com</channel>
     <min>1.1.0</min>
     <max>1.2.0</max>
-    <exclude>1.2.0</exclude>
+    <max>1.3.0</max>
+    <max>1.4.0</max>
+    <max>1.5.0</max>
+    <exclude>1.5.0</exclude>
    </package>
   </required>
  </dependencies>
@@ -76,10 +74,10 @@
     <release>stable</release>
     <api>stable</api>
    </stability>
-   <date>2009-04-24</date>
+   <date>2010-07-19</date>
    <license uri="http://www.symfony-project.org/license">MIT license</license>
    <notes>
-   * Initial creation of plugin
+   * Revamped Plugin for 1.4
    </notes>
   </release>
  </changelog>

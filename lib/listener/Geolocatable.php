@@ -1,8 +1,8 @@
 <?php
 
 // 
-//  Geolocatable.php
-//  csActAsGeolocatablePlugin
+//  Locatable.php
+//  Locatable Extension
 //  
 //  Created by Brent Shaffer on 2008-12-22.
 //  Copyright 2008 Centre{source}. All rights reserved.
@@ -11,13 +11,13 @@
 class Doctrine_Template_Listener_Geolocatable extends Doctrine_Record_Listener
 {
   /**
-   * Array of geolocatable options
+   * Array of locatable options
    */  
   protected $_options = array();
 
 
   /**
-   * Constructor for Geolocatable Template
+   * Constructor for Locatable Template
    *
    * @param array $options 
    * @return void
@@ -30,7 +30,7 @@ class Doctrine_Template_Listener_Geolocatable extends Doctrine_Record_Listener
 
 
   /**
-   * Set the geocodes automatically when a new geolocatable object is created
+   * Set the geocodes automatically when a new locatable object is created
    *
    * @param Doctrine_Event $event
    * @return void
@@ -41,16 +41,18 @@ class Doctrine_Template_Listener_Geolocatable extends Doctrine_Record_Listener
     $object = $event->getInvoker();
 		$object->refreshGeocodes();
   }
-
-
+  
   /**
+   * Set the geocodes automatically when a locatable object's locatable fields are modified
    *
-   * @param string $Doctrine_Event 
+   * @param Doctrine_Event $event
    * @return void
-   * @author Travis Black
-   */  
-  public function postDelete(Doctrine_Event $event)
+   * @author Brent Shaffer
+   */
+  public function preSave(Doctrine_Event $event)
   {
     $object = $event->getInvoker();
-  }  
+    $modified = array_keys($object->getModified());
+    if (array_intersect($this->_options['fields'], $modified)) $object->refreshGeocodes();
+  }
 }

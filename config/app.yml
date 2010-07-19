@@ -1,9 +1,0 @@
-all:
-  geo:
-    google:
-      url:          http://maps.google.com/maps/geo
-      key:          'qw1y4gmJ-FAKE-API-KEY-hEVywVujEwkEWQg'  #Override this in your project's app.yml
-      format:       csv
-    defaults:
-      distance_unit:    miles #can be either miles or kilometers
-      distance:         10
