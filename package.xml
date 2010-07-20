@@ -4,10 +4,7 @@
  <channel>pear.symfony-project.com</channel>
  <summary>A plugin that adds auto-population of latitude and longitude fields and useful geolocating functions to model</summary>
  <description>
-		Configure your plugin using only YAML to pull latitude and longitude 
-		information using the Google API.  Specify the fields on your model 
-		you want to use to for the latitude and longitude and the plugin will 
-		do the rest.  Supports radius searches in miles and kilometers.
+		---> A readable version of the documentation can be found here: http://github.com/bshaffer/csDoctrineActAsGeolocatablePlugin
  </description>
  <lead>
   <name>Brent Shaffer</name>
